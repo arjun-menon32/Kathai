@@ -1,32 +1,91 @@
-# React + TypeScript + Vite
+# Kathai Customer Journey Map
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Kathai is an interactive customer journey research dashboard built with React, TypeScript, and Vite. It presents a premium beverage brand strategy through audience segmentation, persona exploration, stage-by-stage journey analysis, experience touchpoints, and opportunity mapping.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project translates a customer journey map into a web-based experience for:
 
-## React Compiler
+- General premium audience
+- Gen Z consumers
+- Gen Alpha customers and parents/guardians
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+It is designed to help teams explore:
 
-## Expanding the Oxlint configuration
+- Audience segments and narrative positioning
+- Key personas and need states
+- Emotional and practical barriers across each stage
+- Service touchpoints and brand responses
+- Success metrics, research prompts, and strategic opportunities
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Features
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- Audience switching across premium, Gen Z, and Gen Alpha segments
+- Journey stage navigation with evidence and opportunity framing
+- Persona cards and deep-dive insight panels
+- Touchpoint analysis by category and audience context
+- Metric and blueprint views for strategic planning
+- Downloadable summary export in markdown format
+- Responsive, polished interface for presentation and discussion
+
+## Tech stack
+
+- React 19
+- TypeScript
+- Vite
+- Framer Motion
+- Lucide React
+- Recharts
+
+## Project structure
+
+```text
+Kathai/
+├── public/
+├── src/
+│   ├── data/
+│   │   └── journeyData.ts
+│   ├── App.tsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.tsx
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Getting started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the app locally:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Notes
+
+This project is designed as a strategic research and presentation tool rather than a production commerce app. The content reflects journey-based insights and recommendations, not confirmed operational performance data.
+
+## License
+
+This project is for internal or portfolio use unless otherwise specified by the owner.
