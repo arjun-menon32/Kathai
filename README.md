@@ -1,60 +1,33 @@
-# Kathai Customer Journey Map
+# Kathai Investor Brief
 
-Kathai is an interactive customer journey research dashboard built with React, TypeScript, and Vite. It presents a premium beverage brand strategy through audience segmentation, persona exploration, stage-by-stage journey analysis, experience touchpoints, and opportunity mapping.
+Kathai is a compact strategy dashboard for reviewing a premium hot chocolate concept, audience hypotheses, customer journey, and validation plan.
 
-## Overview
+## Views
 
-This project translates a customer journey map into a web-based experience for:
+- **Overview** summarizes the concept, launch framing, and the operating data still needed for an investor growth readout.
+- **Audiences** compares selected segments across the same journey stage and opens persona hypotheses on demand.
+- **Journey** focuses on one audience and stage, with a working cross-segment stage comparison.
+- **Measures** groups recommended indicators by journey stage.
+- **Research** contains the validation agenda and source references.
 
-- General premium audience
-- Gen Z consumers
-- Gen Alpha customers and parents/guardians
+## Evidence boundary
 
-It is designed to help teams explore:
-
-- Audience segments and narrative positioning
-- Key personas and need states
-- Emotional and practical barriers across each stage
-- Service touchpoints and brand responses
-- Success metrics, research prompts, and strategic opportunities
-
-## Features
-
-- Audience switching across premium, Gen Z, and Gen Alpha segments
-- Journey stage navigation with evidence and opportunity framing
-- Persona cards and deep-dive insight panels
-- Touchpoint analysis by category and audience context
-- Metric and blueprint views for strategic planning
-- Downloadable summary export in markdown format
-- Responsive, polished interface for presentation and discussion
-
-## Tech stack
-
-- React 19
-- TypeScript
-- Vite
-- Framer Motion
-- Lucide React
-- Recharts
+The supplied strategy materials do not include revenue, customer counts, retention actuals, unit economics, or a reporting period. The dashboard marks these values as unavailable; it does not present recommendations or hypotheses as actual performance or forecasts. Add sourced operating data before showing growth trends.
 
 ## Project structure
 
 ```text
-Kathai/
-├── public/
-├── src/
-│   ├── data/
-│   │   └── journeyData.ts
-│   ├── App.tsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.tsx
-├── index.html
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── README.md
+public/              Brand logo and static assets
+src/components/      Shared navigation and page primitives
+src/data/            Audience, journey, measure, and research datasets
+src/assets/          Source artwork and images
+src/pages/           Overview and focused detail views
+src/styles/          Dashboard visual system and responsive layout
+src/App.tsx           Hash-based view selection
+src/main.tsx          React entry point
 ```
+
+Each source folder has a short `README.md` describing its ownership boundary and data conventions.
 
 ## Getting started
 
@@ -84,7 +57,7 @@ npm run preview
 
 ## Notes
 
-This project is designed as a strategic research and presentation tool rather than a production commerce app. The content reflects journey-based insights and recommendations, not confirmed operational performance data.
+This is a strategy and research tool, not a commerce application. Audience profiles and journey statements are hypotheses. Recommended measures are not existing performance results.
 
 ## License
 
