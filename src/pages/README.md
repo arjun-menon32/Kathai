@@ -1,9 +1,9 @@
 # App Pages
 
-- `DashboardPage.tsx` is the five-minute investor overview. It reports missing operating actuals explicitly and does not invent growth values.
-- `SegmentsPage.tsx` compares selected audience hypotheses across one shared journey stage, with optional persona detail.
-- `JourneyPage.tsx` shows one audience and journey stage at a time; its comparison expands actual stage content for all audiences.
-- `MeasurementPage.tsx` groups recommended indicators by journey stage. These are not reported results.
-- `ResearchPage.tsx` contains validation plans and source material behind disclosures.
+- `DashboardPage.tsx` is the five-minute overview: launch proposition, audience lenses, community priority, and journey path.
+- `SegmentsPage.tsx` selects one audience, opens persona details on demand, and keeps cross-audience comparison optional.
+- `JourneyPage.tsx` follows an audience or named persona stage by stage; actions, questions, and touchpoints stay tucked into a detail disclosure.
+- `MeasurementPage.tsx` groups growth signals by journey stage.
+- `ResearchPage.tsx` contains focused learning paths and primary source material.
 
 `App.tsx` selects the active page; shared application state should stay there only when more than one page needs it.

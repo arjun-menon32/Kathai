@@ -1,30 +1,31 @@
-# Kathai Investor Brief
+# Kathai Customer Journey Experience
 
-Kathai is a compact strategy dashboard for reviewing a premium hot chocolate concept, audience hypotheses, customer journey, and validation plan.
+Kathai is an interactive view of the premium hot chocolate strategy, its audience personas, and their customer journeys. The overview is designed for a quick read; audience, journey, measures, and research detail are available as separate views.
 
 ## Views
 
-- **Overview** summarizes the concept, launch framing, and the operating data still needed for an investor growth readout.
-- **Audiences** compares selected segments across the same journey stage and opens persona hypotheses on demand.
-- **Journey** focuses on one audience and stage, with a working cross-segment stage comparison.
-- **Measures** groups recommended indicators by journey stage.
-- **Research** contains the validation agenda and source references.
+- **Overview** summarizes the Bengaluru launch proposition, the three audience lenses, the community and belonging focus, and the five journey stages.
+- **Audiences** presents one audience at a time, with persona detail available on demand.
+- **Journey** follows a selected audience or persona through discovery, consideration, experience, retention, and advocacy.
+- **Measures** groups growth signals by journey stage.
+- **Research** contains focused learning paths and the source documents.
 
 ## Evidence boundary
 
-The supplied strategy materials do not include revenue, customer counts, retention actuals, unit economics, or a reporting period. The dashboard marks these values as unavailable; it does not present recommendations or hypotheses as actual performance or forecasts. Add sourced operating data before showing growth trends.
+The overview presents the customer strategy and intended audience focus. The app does not contain a live financial reporting feed; add sourced operating data separately if business performance views are introduced.
 
 ## Project structure
 
 ```text
-public/              Brand logo and static assets
-src/components/      Shared navigation and page primitives
-src/data/            Audience, journey, measure, and research datasets
-src/assets/          Source artwork and images
-src/pages/           Overview and focused detail views
-src/styles/          Dashboard visual system and responsive layout
-src/App.tsx           Hash-based view selection
-src/main.tsx          React entry point
+public/               Brand logo and static assets
+docs/                 Strategy source documents and working reference material
+src/components/       Shared navigation and page primitives
+src/data/              Audience, journey, service, measure, and research modules
+src/assets/            Source artwork and images
+src/pages/             Overview and focused detail views
+src/styles/            Dashboard visual system and responsive layout
+src/App.tsx             Hash-based view selection
+src/main.tsx            React entry point
 ```
 
 Each source folder has a short `README.md` describing its ownership boundary and data conventions.
@@ -57,7 +58,7 @@ npm run preview
 
 ## Notes
 
-This is a strategy and research tool, not a commerce application. Audience profiles and journey statements are hypotheses. Recommended measures are not existing performance results.
+This is a strategy and research tool, not a commerce application. Audience profiles and journey statements follow the supplied strategy documents and customer conversation notes.
 
 ## License
 

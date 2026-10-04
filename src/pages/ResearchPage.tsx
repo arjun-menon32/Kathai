@@ -1,23 +1,25 @@
 import { contextualLinks, researchPlan, researchReferences, sources } from '../data/journeyData'
-import { EvidenceTag, PageHeading } from '../components/PageHeading'
+import { PageHeading } from '../components/PageHeading'
 
 function ResearchPage() {
   return (
     <>
       <PageHeading
-        eyebrow="Evidence and validation"
-        title="Separate the idea from the proof."
-        description="The strategy materials describe what to test next. They do not establish market demand or observed customer behaviour."
+        eyebrow="The learning agenda"
+        title="Keep learning from every cup."
+        description="Explore the decisions that deepen Kathai’s taste, service, belonging, family experience and repeat rituals."
       />
+
+      <p className="research-fun-note">Fun note: we visited the actual craft chocolate shops and for that we’d like to thank Navin.</p>
 
       <section className="research-list" aria-label="Recommended research plan">
         <div className="section-heading-row">
-          <div><p className="eyebrow">Next learning agenda</p><h2>Decisions to validate</h2></div>
-          <span className="source-note">Open an item for method and decision</span>
+          <div><p className="eyebrow">Experience development</p><h2>Choose a path to explore</h2></div>
+          <span className="source-note">Method, signal and decision</span>
         </div>
         {researchPlan.map((item, index) => (
           <details className="disclosure-row research-item" key={item.title}>
-            <summary><span className="metric-index">0{index + 1}</span><span className="research-title">{item.title}<small>{item.objective}</small></span><EvidenceTag status={item.status} /></summary>
+            <summary><span className="metric-index">0{index + 1}</span><span className="research-title">{item.title}<small>{item.objective}</small></span></summary>
             <div className="research-content">
               <p><strong>Suggested method:</strong> {item.suggestedMethod}</p>
               <p><strong>Capture:</strong> {item.capture}</p>

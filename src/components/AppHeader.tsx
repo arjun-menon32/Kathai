@@ -18,7 +18,6 @@ function AppHeader({ activePage }: AppHeaderProps) {
       <div className="header-inner">
         <a className="brand-lockup" href="#overview" aria-label="Kathai overview">
           <img src="/BrandLogo.png" alt="Kathai" />
-          <span>INVESTOR BRIEF</span>
         </a>
         <nav className="primary-nav" aria-label="Main navigation">
           {navigation.map((item) => (
@@ -32,7 +31,7 @@ function AppHeader({ activePage }: AppHeaderProps) {
             </a>
           ))}
         </nav>
-        <span className="header-status"><span /> Strategy view</span>
+        <div className="header-watermark" aria-hidden="true">Utsav</div>
       </div>
     </header>
   )

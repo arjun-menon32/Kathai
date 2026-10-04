@@ -43,7 +43,7 @@ function App() {
         {activePage === 'research' && <ResearchPage />}
       </main>
       <footer className="app-footer">
-        Kathai strategy view <span aria-hidden="true">·</span> Hypotheses and measures are not operating results
+        Kathai <span aria-hidden="true">·</span> A story in every cup
       </footer>
     </div>
   )

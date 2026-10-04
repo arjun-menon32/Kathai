@@ -1,26 +1,41 @@
 import { useState } from 'react'
-import type { AudienceId, StageName } from '../data/journeyData'
-import { journeyStages, segmentJourney, segments } from '../data/journeyData'
-import { EvidenceTag, PageHeading } from '../components/PageHeading'
+import type { AudienceId, StageName } from '../data/types'
+import { personas, segments } from '../data/audiences'
+import { genAlphaJourneys, journeyStages, segmentJourney } from '../data/journeys'
+import { PageHeading } from '../components/PageHeading'
 
 function JourneyPage() {
   const [audience, setAudience] = useState<AudienceId>('general')
+  const [personaId, setPersonaId] = useState('')
   const [stage, setStage] = useState<StageName>('Awareness')
   const [compareOpen, setCompareOpen] = useState(false)
   const currentSegment = segments.find((segment) => segment.id === audience) ?? segments[0]
   const currentDetail = segmentJourney[audience].find((item) => item.stage === stage) ?? segmentJourney[audience][0]
+  const audiencePersonas = personas.filter((persona) => persona.segment === audience)
+  const focusedPersona = audiencePersonas.find((persona) => persona.id === personaId)
+  const focusedRole = focusedPersona?.journeyRole
+  const roleJourney = focusedRole ? genAlphaJourneys.find((journey) => journey.id === focusedRole) : undefined
+  const roleStage = roleJourney?.stages.find((item) => item.name === stage)
 
   return (
     <>
       <PageHeading
         eyebrow="Customer journey"
-        title="Follow one stage at a time."
-        description="A focused view of the customer goal, likely friction and recommended response. Switch audiences or compare the same stage across segments."
-        action={<label className="select-control">Audience
-          <select value={audience} onChange={(event) => setAudience(event.target.value as AudienceId)}>
-            {segments.map((segment) => <option key={segment.id} value={segment.id}>{segment.label}</option>)}
-          </select>
-        </label>}
+        title="Walk the journey, persona by persona."
+        description="Choose who you are following, then move through the moments that shape discovery, experience and return."
+        action={<div className="journey-heading-controls">
+          <label className="select-control">Audience
+            <select value={audience} onChange={(event) => { setAudience(event.target.value as AudienceId); setPersonaId('') }}>
+              {segments.map((segment) => <option key={segment.id} value={segment.id}>{segment.label}</option>)}
+            </select>
+          </label>
+          <label className="select-control">Persona
+            <select value={personaId} onChange={(event) => setPersonaId(event.target.value)}>
+              <option value="">Audience-wide view</option>
+              {audiencePersonas.map((persona) => <option key={persona.id} value={persona.id}>{persona.name}</option>)}
+            </select>
+          </label>
+        </div>}
       />
 
       <section className="detail-section journey-controls" aria-label="Journey stages">
@@ -34,15 +49,22 @@ function JourneyPage() {
         <article className="journey-focus">
           <div className="journey-focus-header">
             <div><p className="eyebrow">{currentSegment.label}</p><h2>{stage}</h2></div>
-            <EvidenceTag status={currentDetail.evidenceStatus} />
           </div>
-          <p className="journey-objective">{currentDetail.objective}</p>
+          <p className="journey-objective">{roleStage?.goal ?? currentDetail.objective}</p>
+          {focusedPersona && !roleStage && <div className="persona-stage-focus"><span className="section-kicker">{focusedPersona.name}</span><p>{focusedPersona.stageFocus[stage]}</p></div>}
           <div className="journey-detail-grid">
-            <div><span className="section-kicker">Recommended response</span><p>{currentDetail.response}</p></div>
-            <div><span className="section-kicker">Key actions</span><ul>{currentDetail.actions.slice(0, 3).map((item) => <li key={item}>{item}</li>)}</ul></div>
-            <div><span className="section-kicker">Potential friction</span><ul>{currentDetail.painPoints.slice(0, 2).map((item) => <li key={item}>{item}</li>)}</ul></div>
-            <div><span className="section-kicker">Success measures to validate</span><ul>{currentDetail.successMeasures.slice(0, 3).map((item) => <li key={item}>{item}</li>)}</ul></div>
+            <div><span className="section-kicker">What matters now</span><p>{focusedPersona ? focusedPersona.needs.slice(0, 3).join(' · ') : currentDetail.emotions.join(' · ')}</p></div>
+            <div><span className="section-kicker">What can get in the way</span><ul>{(focusedPersona ? focusedPersona.challenges : currentDetail.painPoints).slice(0, 3).map((item) => <li key={item}>{item}</li>)}</ul></div>
+            <div className="journey-response"><span className="section-kicker">Kathai’s response</span><p>{roleStage?.kathaiResponse ?? currentDetail.response}</p></div>
           </div>
+          <details className="journey-more">
+            <summary>Explore actions, questions and touchpoints</summary>
+            <div className="journey-more-grid">
+              <div><span className="section-kicker">Customer actions</span><ul>{(roleStage?.actions ?? currentDetail.actions).map((item) => <li key={item}>{item}</li>)}</ul></div>
+              <div><span className="section-kicker">Questions in this moment</span><ul>{(roleStage?.questions ?? currentDetail.questions).map((item) => <li key={item}>{item}</li>)}</ul></div>
+              <div><span className="section-kicker">Touchpoints</span><ul>{currentDetail.touchpoints.map((item) => <li key={item}>{item}</li>)}</ul></div>
+            </div>
+          </details>
           <button className="text-action" type="button" aria-expanded={compareOpen} onClick={() => setCompareOpen((open) => !open)}>
             {compareOpen ? 'Hide stage comparison' : `Compare ${stage.toLowerCase()} across audiences`}
           </button>
@@ -60,7 +82,6 @@ function JourneyPage() {
                 <p>{detail.objective}</p>
                 <span className="section-kicker">Response</span>
                 <p>{detail.response}</p>
-                <EvidenceTag status={detail.evidenceStatus} />
               </article>
             )
           })}
