@@ -15,26 +15,37 @@ function pageFromHash(): AppPage {
 
 function App() {
   const [activePage, setActivePage] = useState<AppPage>(pageFromHash)
+  const [watermarkFlash, setWatermarkFlash] = useState(false)
 
   useEffect(() => {
-    const syncPage = () => setActivePage(pageFromHash())
+    const syncPage = () => {
+      setActivePage(pageFromHash())
+      setWatermarkFlash(true)
+      window.clearTimeout((syncPage as typeof syncPage & { timeout?: number }).timeout)
+      ;(syncPage as typeof syncPage & { timeout?: number }).timeout = window.setTimeout(() => setWatermarkFlash(false), 240)
+    }
+
     window.addEventListener('hashchange', syncPage)
     window.addEventListener('popstate', syncPage)
     return () => {
       window.removeEventListener('hashchange', syncPage)
       window.removeEventListener('popstate', syncPage)
+      window.clearTimeout((syncPage as typeof syncPage & { timeout?: number }).timeout)
     }
   }, [])
 
   const navigate = (page: AppPage) => {
     window.history.pushState(null, '', `#${page}`)
     setActivePage(page)
+    setWatermarkFlash(true)
+    window.clearTimeout((navigate as typeof navigate & { timeout?: number }).timeout)
+    ;(navigate as typeof navigate & { timeout?: number }).timeout = window.setTimeout(() => setWatermarkFlash(false), 240)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
     <div className="app-shell">
-      <AppHeader activePage={activePage} />
+      <AppHeader activePage={activePage} watermarkFlash={watermarkFlash} />
       <main className="page-wrap">
         {activePage === 'overview' && <DashboardPage onNavigate={navigate} />}
         {activePage === 'audiences' && <SegmentsPage />}

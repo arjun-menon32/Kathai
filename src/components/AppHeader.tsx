@@ -2,6 +2,7 @@ export type AppPage = 'overview' | 'audiences' | 'journey' | 'measurement' | 're
 
 type AppHeaderProps = {
   activePage: AppPage
+  watermarkFlash?: boolean
 }
 
 const navigation: { id: AppPage; label: string }[] = [
@@ -12,7 +13,7 @@ const navigation: { id: AppPage; label: string }[] = [
   { id: 'research', label: 'Research' },
 ]
 
-function AppHeader({ activePage }: AppHeaderProps) {
+function AppHeader({ activePage, watermarkFlash = false }: AppHeaderProps) {
   return (
     <header className="app-header">
       <div className="header-inner">
@@ -31,7 +32,7 @@ function AppHeader({ activePage }: AppHeaderProps) {
             </a>
           ))}
         </nav>
-        <div className="header-watermark" aria-hidden="true">Utsav</div>
+        <div className={`header-watermark${watermarkFlash ? ' is-flashing' : ''}`} aria-hidden="true">Utsav</div>
       </div>
     </header>
   )

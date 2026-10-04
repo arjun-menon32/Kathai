@@ -44,8 +44,26 @@ button { color: inherit; }
   text-transform: uppercase;
   pointer-events: none;
   user-select: none;
-  opacity: 0.55;
+  opacity: 0.22;
+  transition: opacity 180ms ease, color 180ms ease;
   filter: blur(0.15px);
+}
+
+.app-header:hover .header-watermark,
+.header-watermark.is-flashing {
+  opacity: 0.62;
+  color: rgba(36, 72, 60, 0.18);
+}
+
+.header-watermark.is-flashing {
+  animation: watermarkPulse 240ms ease-in-out 1;
+}
+
+@keyframes watermarkPulse {
+  0% { opacity: 0.12; }
+  30% { opacity: 0.78; }
+  60% { opacity: 0.42; }
+  100% { opacity: 0.22; }
 }
 .page-wrap { width: min(100% - 48px, 1120px); min-height: calc(100vh - 132px); margin: 0 auto; padding: 42px 0 72px; }
 .page-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 30px; }
