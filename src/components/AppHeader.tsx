@@ -18,7 +18,10 @@ function AppHeader({ activePage, watermarkFlash = false }: AppHeaderProps) {
     <header className="app-header">
       <div className="header-inner">
         <a className="brand-lockup" href="#overview" aria-label="Kathai overview">
-          <img src={`${import.meta.env.BASE_URL}BrandLogo.png`} alt="Kathai" />
+          <img
+            src="https://raw.githubusercontent.com/arjun-menon32/Kathai/main/public/BrandLogo.png"
+            alt="Kathai"
+          />
         </a>
         <nav className="primary-nav" aria-label="Main navigation">
           {navigation.map((item) => (
