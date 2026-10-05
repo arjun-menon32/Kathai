@@ -3,6 +3,10 @@ name: Deploy Vite site to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows: [pages build and deployment]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
