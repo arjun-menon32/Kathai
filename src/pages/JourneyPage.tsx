@@ -3,6 +3,9 @@ import type { AudienceId, StageName } from '../data/types'
 import { personas, segments } from '../data/audiences'
 import { genAlphaJourneys, journeyStages, segmentJourney } from '../data/journeys'
 import { PageHeading } from '../components/PageHeading'
+import GenAlphaPairedJourney from '../components/GenAlphaPairedJourney'
+import PersonaEvidence from '../components/PersonaEvidence'
+import PersonaDecisionSummary from '../components/PersonaDecisionSummary'
 
 function JourneyPage() {
   const [audience, setAudience] = useState<AudienceId>('general')
@@ -51,7 +54,9 @@ function JourneyPage() {
             <div><p className="eyebrow">{currentSegment.label}</p><h2>{stage}</h2></div>
           </div>
           <p className="journey-objective">{roleStage?.goal ?? currentDetail.objective}</p>
-          {focusedPersona && !roleStage && <div className="persona-stage-focus"><span className="section-kicker">{focusedPersona.name}</span><p>{focusedPersona.stageFocus[stage]}</p></div>}
+          {focusedPersona && <div className="persona-stage-focus"><span className="section-kicker">{focusedPersona.name}</span><p>{focusedPersona.stageFocus[stage]}</p></div>}
+          {focusedPersona && <PersonaDecisionSummary decisionProfile={focusedPersona.decisionProfile} primaryContext={focusedPersona.primaryContext} />}
+          {focusedPersona && <PersonaEvidence personaId={focusedPersona.id} evidence={focusedPersona.researchEvidence} validationQuestions={focusedPersona.questionsToValidate} />}
           <div className="journey-detail-grid">
             <div><span className="section-kicker">What matters now</span><p>{focusedPersona ? focusedPersona.needs.slice(0, 3).join(' · ') : currentDetail.emotions.join(' · ')}</p></div>
             <div><span className="section-kicker">What can get in the way</span><ul>{(focusedPersona ? focusedPersona.challenges : currentDetail.painPoints).slice(0, 3).map((item) => <li key={item}>{item}</li>)}</ul></div>
@@ -70,6 +75,16 @@ function JourneyPage() {
           </button>
         </article>
       </section>
+
+      {focusedPersona?.guardianJourney && (
+        <section className="detail-section gen-alpha-paired-section journey-paired-section" aria-labelledby="paired-journey-title">
+          <div className="section-heading-row">
+            <div><p className="eyebrow">Gen Alpha · paired journey</p><h2 id="paired-journey-title">Child and parent/guardian</h2></div>
+            <span className="source-note">Child influences; guardian decides and pays where applicable</span>
+          </div>
+          <GenAlphaPairedJourney stages={focusedPersona.guardianJourney} />
+        </section>
+      )}
 
       {compareOpen && (
         <section className="stage-comparison" aria-label={`${stage} audience comparison`}>

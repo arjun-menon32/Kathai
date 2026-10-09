@@ -1,0 +1,31 @@
+# KATHAI persona comparison — internal review
+
+This working comparison supports persona, journey and product decisions. It is not a customer research report. The preserved roster is General (5), Gen Z (4) and Gen Alpha (3). Purchase triggers and decision factors are strategic hypotheses unless a persona-specific source is attached; no persona is locally customer-validated.
+
+| Audience / persona | Primary need | Purchase motivation | Main barrier | Purchasing role | Differentiator | Overlap to review |
+|---|---|---|---|---|---|---|
+| General · The Premium Experience Explorer | Sensory discovery and credible craft | Discover a story-rich cup worth deliberate attention and spend | Ordinary drink or theatre that does not justify premium | Adult chooser and payer | Broad premium experience and craft discovery | Substantial overlap with The Flavour and Craft Enthusiast |
+| General · The Urban Pause Seeker | Dependable comfort and decompression | Create an unhurried restorative moment | Wait, complexity or inconsistent quality | Adult chooser and payer | Ease and emotional pause, not safety-led destination trust | Partial overlap with The Trusted Ritual Seeker |
+| General · The Trusted Ritual Seeker | Respectful hospitality, safety and belonging | Choose confidence over nearest venue | Inclusive message does not match lived service | Adult chooser, payer and recommender | Destination trust and felt safety | Adjacent to The Creative Community Connector |
+| General · The Gift and Shared-Moment Buyer | Thoughtful gift and shared moment | Express care through an experience | Recipient fit, delivery or redemption uncertainty | Buyer/payer differs from recipient/consumer | Recipient outcome and gifting fulfilment | Keep buyer and recipient journeys distinct |
+| General · The Traveller / Self-Heating Utility Seeker | Hot drink away from ordinary facilities | Obtain warmth in a remote/outdoor context | Weight, waste, handling, restrictions or heating reliability | Adult traveler, chooser, payer and user | Exploratory broad travel utility | Near-duplicate of The On the Go Comfort Seeker |
+| Gen Z · The Young Independent Experience Collector | Cultural discovery and self-expression | Choose an expressive outing worth sharing | Weak value, forced trendiness or inaccessible tone | Independent chooser; may influence group | Broad individual expression and cultural discovery | Meaningful overlap with The Creative Community Connector |
+| Gen Z · The Creative Community Connector | Welcoming group destination and belonging | Bring friends somewhere trusted, even farther away | Tokenism, poor welcome, unclear group cost or posting pressure | Group influencer/organizer; payment may be shared | Gen Z group/community trust | Adjacent to The Trusted Ritual Seeker |
+| Gen Z · The Flavour and Craft Enthusiast | Distinctive flavour and credible craft | Taste a cup that proves product claims | Generic taste or vague descriptions | Independent chooser, payer and recommender | Product-led sensory evaluation | Substantial overlap with The Premium Experience Explorer |
+| Gen Z · The On the Go Comfort Seeker | Practical portable warmth on short trips | Carry a useful drink away from facilities | Bulk, uncertain heating, handling or disposal | Adult traveler, chooser, payer and user | Short-getaway use context | Near-duplicate of The Traveller / Self-Heating Utility Seeker |
+| Gen Alpha · Aarav Sharma · Social Trend Explorer | Age-appropriate flavour discovery prompted by social curiosity | Try a trend-led discovery and share it naturally | Guardian concern about suitability, cost or unclear preparation | Child consumes/influences; guardian approves, pays and supervises | Trend-led request; repeat depends on actual enjoyment | Overlaps with Curious Ingredient Explorer on flavour/preparation curiosity |
+| Gen Alpha · The Pocket-Money Treat Planner | Treat worth limited pocket money or allowance | Choose this treat over other spending priorities | Price, portion uncertainty and competing wants | Child may request/contribute; guardian approves and may pay | Budget allocation plus guardian authority | Value concerns overlap generally, but child/guardian roles differ |
+| Gen Alpha · The Curious Ingredient Explorer | Simple explanation of flavour, ingredients and preparation | Explore a drink with adult-supported answers | Unfamiliar flavour, confusing explanation or guardian uncertainty | Child asks/consumes; guardian verifies, approves and pays | Question-led exploration; safety judgment stays with guardian | Overlaps with Aarav; spontaneous questions versus trend-led discovery |
+
+## Evidence and status
+
+- All 12 personas remain hypotheses or exploratory profiles; none is customer-validated by this framework.
+- The research registry in `src/data/research.ts` centralizes findings from the Ajji House field report, competitor report, external consumer research, and the two previously attached Gen Alpha studies. Each finding is linked to its source, location, evidence type, context, limitations, relevant persona IDs, and KATHAI implication.
+- Competitor observations, single-venue field notes, broad published studies, and platform surveys are evidence about their stated context. They do not establish KATHAI demand or validate the individual personas.
+- PubMed ID 11327212 resolves to an unrelated tonsil study and is excluded. The supplied PMC URL identifies the relevant 2024 parent-appeal marketing review.
+- Discovery channels are blank where the existing brief does not specify them. Any listed channels are framed as hypotheses for local validation, not observed preferences.
+- No local KATHAI customer findings have been recorded. Keep local research fields empty until findings are collected and traceably documented.
+
+## Overlap decisions
+
+Do not merge or remove profiles based on this desk audit alone. Prioritize local validation of the travel pair and product-craft pair, then test whether individual self-expression and group belonging can be distinguished in actual purchase situations. For Gen Alpha, observe the origin of the request and the questions children ask without inviting children to assess safety claims. Preserve gifting’s buyer/recipient distinction and guardian purchase authority throughout.

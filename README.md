@@ -1,18 +1,16 @@
-# Kathai Customer Journey Experience
+# Kathai Journey Experience
 
-Kathai is an interactive view of the premium hot chocolate strategy, its audience personas, and their customer journeys. The overview is designed for a quick read; audience, journey, measures, and research detail are available as separate views.
+Kathai is an interactive view of the premium hot chocolate strategy, its customer experience, technology ecosystem, and investor case. The application is organised into three primary sections, each with its own secondary navigation.
 
-## Views
+## Primary sections
 
-- **Overview** summarizes the Bengaluru launch proposition, the three audience lenses, the community and belonging focus, and the five journey stages.
-- **Audiences** presents one audience at a time, with persona detail available on demand.
-- **Journey** follows a selected audience or persona through discovery, consideration, experience, retention, and advocacy.
-- **Measures** groups growth signals by journey stage.
-- **Research** contains focused learning paths and the source documents.
+- **Customer Journey** retains the overview, audiences, journey, measures, and research views.
+- **Technology Journey** covers the technology ecosystem, experience and personalisation, data and intelligence, smart operations, and the technology roadmap.
+- **Investor Journey** covers the investment overview, market opportunity, business model, validation and traction, growth and scale, and investment case.
 
 ## Evidence boundary
 
-The overview presents the customer strategy and intended audience focus. The app does not contain a live financial reporting feed; add sourced operating data separately if business performance views are introduced.
+Technology capabilities are presented as an ecosystem and roadmap, not as claims about systems already deployed. Investor pages distinguish the stated Bengaluru launch focus from future possibilities and mark missing market evidence, traction, and financial figures for validation. No market sizes, traction metrics, financial numbers, or investment returns are invented.
 
 ## Project structure
 
@@ -22,7 +20,7 @@ docs/                 Strategy source documents and working reference material
 src/components/       Shared navigation and page primitives
 src/data/              Audience, journey, service, measure, and research modules
 src/assets/            Source artwork and images
-src/pages/             Overview and focused detail views
+src/pages/             Customer, technology, and investor views
 src/styles/            Dashboard visual system and responsive layout
 src/App.tsx             Hash-based view selection
 src/main.tsx            React entry point

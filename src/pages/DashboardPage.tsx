@@ -1,6 +1,6 @@
 import { ArrowRight, MapPin, UsersRound } from 'lucide-react'
 import { PageHeading } from '../components/PageHeading'
-import type { AppPage } from '../components/AppHeader'
+import type { AppPage } from '../data/navigation'
 import { journeyStages } from '../data/journeyData'
 import { segments, strategicAudienceFocus } from '../data/audiences'
 

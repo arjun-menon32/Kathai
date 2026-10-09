@@ -272,20 +272,6 @@ export const genAlphaJourneys: GenAlphaJourney[] = [
       { name: 'Advocacy', goal: 'Share excitement with family or peers naturally.', actions: ['Tell others about the experience', 'Share a memory or drawing'], questions: ['Would my friend enjoy this too?'], kathaiResponse: 'Never ask children to create content or advocate; let sharing remain organic.' },
     ],
   },
-  {
-    id: 'parent-guardian',
-    title: 'Parent or guardian',
-    subtitle: 'Trust, suitability and purchase authority',
-    decisionRole: 'Evaluates suitability, authorizes the purchase, reservation and payment, and grants repeat permission.',
-    priorities: ['Ingredients and allergens', 'Nutrition and sugar', 'Portion size', 'Safety and age suitability', 'Price-value assessment'],
-    stages: [
-      { name: 'Awareness', goal: 'Recognize a family-appropriate experience worth considering.', actions: ['Notice the offer', 'Check whether the setting welcomes families'], questions: ['Is this appropriate for our family?', 'Is the positioning responsible?'], kathaiResponse: 'Use family-inclusive information; do not target children with urgency or pressure.' },
-      { name: 'Consideration', goal: 'Assess ingredients, allergens, portion, safety and value.', actions: ['Review verified menu information', 'Ask staff about ingredients or suitability'], questions: ['What is in it?', 'Are allergens clearly identified?', 'Is the portion suitable?'], kathaiResponse: 'Provide verified, accessible information and a clear route to ask questions.' },
-      { name: 'Purchase and Experience', goal: 'Make an informed purchase and feel confident during the visit.', actions: ['Decide and pay', 'Guide participation', 'Observe service and handling'], questions: ['Is the serving temperature safe?', 'Does the experience justify the price?'], kathaiResponse: 'Keep decision-making with the adult; explain heat, service and any optional mechanism.' },
-      { name: 'Retention', goal: 'Decide whether a repeat visit is appropriate and worthwhile.', actions: ['Reflect on the experience', 'Consider a future occasion'], questions: ['Was the child comfortable?', 'Would I permit another visit?'], kathaiResponse: 'Earn repeat permission through consistency and transparency, not pressure.' },
-      { name: 'Advocacy', goal: 'Recommend only if trust and experience merit it.', actions: ['Share a recommendation with other families', 'Consider gifting'], questions: ['Would I confidently recommend this to another guardian?'], kathaiResponse: 'Support honest reviews and word of mouth; avoid implying safety claims without evidence.' },
-    ],
-  },
 ]
 
 export const emotionalJourney: EmotionalPoint[] = [

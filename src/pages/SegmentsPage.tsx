@@ -3,6 +3,9 @@ import type { AudienceId } from '../data/journeyData'
 import { personas, segments } from '../data/audiences'
 import { journeyStages, segmentJourney } from '../data/journeys'
 import { PageHeading } from '../components/PageHeading'
+import GenAlphaPairedJourney from '../components/GenAlphaPairedJourney'
+import PersonaEvidence from '../components/PersonaEvidence'
+import PersonaDecisionSummary from '../components/PersonaDecisionSummary'
 
 function SegmentsPage() {
   const [audience, setAudience] = useState<AudienceId>('general')
@@ -49,17 +52,27 @@ function SegmentsPage() {
               </summary>
               <div className="persona-card-content">
                 <p>{persona.profile}</p>
-                {persona.statement && <blockquote>{persona.statement}</blockquote>}
+                {persona.statement && <blockquote><span className="statement-qualifier">{persona.statementQualifier ?? 'Illustrative statement'}: </span>{persona.statement}</blockquote>}
                 <div className="persona-insights">
                   <div><span className="section-kicker">What they seek</span><p>{persona.jobToBeDone}</p></div>
+                  <div><span className="section-kicker">What motivates them</span><p>{persona.motivations.join(' · ')}</p></div>
                   <div><span className="section-kicker">What gets in the way</span><p>{persona.challenges.slice(0, 2).join(' · ')}</p></div>
                   <div><span className="section-kicker">Where it happens</span><p>{persona.occasions.slice(0, 3).join(' · ')}</p></div>
                   <div><span className="section-kicker">What earns advocacy</span><p>{persona.stageFocus.Advocacy}</p></div>
+                  {persona.selfHeatingQuestion && <div><span className="section-kicker">Self-heating question</span><p>{persona.selfHeatingQuestion}</p></div>}
                 </div>
+                <PersonaDecisionSummary decisionProfile={persona.decisionProfile} primaryContext={persona.primaryContext} />
+                <PersonaEvidence personaId={persona.id} evidence={persona.researchEvidence} validationQuestions={persona.questionsToValidate} />
                 <details className="persona-journey">
                   <summary>Follow this persona through the journey</summary>
                   <ol>{journeyStages.map((item) => <li key={item}><strong>{item}</strong><span>{persona.stageFocus[item] ?? segmentJourney[audience].find((journey) => journey.stage === item)?.objective}</span></li>)}</ol>
                 </details>
+                {persona.guardianJourney && (
+                  <section className="gen-alpha-paired-section" aria-label={`Paired child and guardian journey for ${persona.name}`}>
+                    <h3>Child and parent/guardian journey</h3>
+                    <GenAlphaPairedJourney stages={persona.guardianJourney} />
+                  </section>
+                )}
               </div>
             </details>
           ))}

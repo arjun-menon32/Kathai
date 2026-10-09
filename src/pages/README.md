@@ -1,9 +1,7 @@
 # App Pages
 
-- `DashboardPage.tsx` is the five-minute overview: launch proposition, audience lenses, community priority, and journey path.
-- `SegmentsPage.tsx` selects one audience, opens persona details on demand, and keeps cross-audience comparison optional.
-- `JourneyPage.tsx` follows an audience or named persona stage by stage; actions, questions, and touchpoints stay tucked into a detail disclosure.
-- `MeasurementPage.tsx` groups growth signals by journey stage.
-- `ResearchPage.tsx` contains focused learning paths and primary source material.
+- Customer Journey keeps its existing `DashboardPage.tsx`, `SegmentsPage.tsx`, `JourneyPage.tsx`, `MeasurementPage.tsx`, and `ResearchPage.tsx` views.
+- `TechnologyJourneyPage.tsx` provides the technology architecture and illustrative end-to-end example, customer flow, proposed data pipeline, operating outcomes, logical foundation, and staged roadmap; its footer connects the five pages as one story.
+- `InvestorJourneyPage.tsx` tells a six-step investor story: investment overview, opportunity framework, revenue and unit economics, validation plan, independent scaling paths, and investment-case synthesis. Evidence labels distinguish known propositions, hypotheses, and items to validate.
 
-`App.tsx` selects the active page; shared application state should stay there only when more than one page needs it.
+`App.tsx` selects the primary section and its active page from the URL hash. Customer page hashes remain compatible with the existing routes; Technology and Investor hashes are section-scoped.
